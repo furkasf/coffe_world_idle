@@ -14,6 +14,12 @@ namespace Assets.Scripts.Entitys
         public Vector3 BaristaWaypoint => _baristaWaypoint;
         public Vector3 CustomerWaypoint => _customerpoint;
 
+        public Node(Vector3 customerWaypoint, Vector3 baristaWaypoint)
+        {
+            _customerpoint = customerWaypoint;
+            _baristaWaypoint = baristaWaypoint;
+        }
+
         public void AddCustomer(Customer customer)
         {
             if (customer == null) return;

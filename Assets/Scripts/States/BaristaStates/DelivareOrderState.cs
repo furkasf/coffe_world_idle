@@ -9,6 +9,12 @@ namespace Assets.Scripts.States.BaristaStates
 {
     public class DelivareOrderState : IState
     {
+        private readonly Barista _barista;
+
+        public DelivareOrderState(Barista barista)
+        {
+            _barista = barista;
+        }
         public void OnEnter()
         {
             //exit from praper state

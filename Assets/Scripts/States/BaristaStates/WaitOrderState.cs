@@ -1,14 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Assets.States;
-using System.Threading.Tasks;
+﻿using Assets.States;
+using UnityEngine;
 
 namespace Assets.Scripts.States.BaristaStates
 {
     public class WaitOrderState : IState
     {
+        private readonly Barista _barista;
+        private Vector3 _startPos;
+
+        public WaitOrderState(Barista barista)
+        {
+            _barista = barista;
+            _startPos = _barista.BaristaPos;
+        }
+
         public void OnEnter()
         {
             //reset delivery state
