@@ -9,6 +9,11 @@ namespace Assets.Scripts.States.CustomerStates
 {
     public class CustomerWaitState : IState
     {
+        Customer _customer;
+        public CustomerWaitState(Customer customer)
+        {
+            _customer = customer;
+        }
         public void OnEnter()
         {
             

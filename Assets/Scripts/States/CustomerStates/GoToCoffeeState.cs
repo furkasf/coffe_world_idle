@@ -9,6 +9,11 @@ namespace Assets.Scripts.States.CustomerStates
 {
     public class GoToCoffeeState : IState
     {
+        Customer _customer;
+        public GoToCoffeeState(Customer customer) 
+        {
+            _customer = customer;
+        }
         public void OnEnter()
         {
 

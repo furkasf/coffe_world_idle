@@ -8,6 +8,8 @@ public class Barista : MonoBehaviour
 {
     private StateMachine _stateMachine;
 
+    [SerializeField] float speed = 3f;
+
     public bool IsCustomerCome;
     public bool IsOrdertaken;
     public bool IsCoffeePrepared;
@@ -27,7 +29,9 @@ public class Barista : MonoBehaviour
         At(waitOrder, getOrder, OnIsWait());
         At(getOrder, prepareOrder,OnIsOrderTaken());
         At(prepareOrder, delivareOrder, OnIsCoffeePrepared());
-        At(delivareOrder, waitOrder, OnCoffeeDelivered());        
+        At(delivareOrder, waitOrder, OnCoffeeDelivered());
+
+        _stateMachine.SetState(waitOrder);
 
         void At(IState to, IState from, Func<bool> condition) => _stateMachine.AddTransition(to, from, condition);
 
