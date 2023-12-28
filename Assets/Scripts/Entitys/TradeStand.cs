@@ -28,12 +28,15 @@ namespace Assets.Scripts.Entitys
             TradeEvent.OnGetAvailableCustomerAtShopNode += GetAvailableCustomerAtShopNode;
             TradeEvent.OnGetEmptyCustomerNode += GetEmptyNode;
             TradeEvent.OnAddcustomer += AddCustomer;
-            TradeEvent.OnIsAllNodesFull += IsAllNodesFull;
+            TradeEvent.OnIsAllNodesFul += IsAllNodesFull;
         }
 
         private void OnDisable()
         {
-            
+            TradeEvent.OnGetAvailableCustomerAtShopNode -= GetAvailableCustomerAtShopNode;
+            TradeEvent.OnGetEmptyCustomerNode -= GetEmptyNode;
+            TradeEvent.OnAddcustomer -= AddCustomer;
+            TradeEvent.OnIsAllNodesFul -= IsAllNodesFull;
         }
 
         private void AddCustomer(Node node, Customer customer)
