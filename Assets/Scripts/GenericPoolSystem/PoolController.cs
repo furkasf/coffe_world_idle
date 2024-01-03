@@ -42,7 +42,6 @@ namespace GenericPoolSystem
         }
 
 
-
         private void GetPoolData() => PoolData = Resources.Load<PoolContainer>("PoolData/PoolContainer");
 
         private void initializePool()
