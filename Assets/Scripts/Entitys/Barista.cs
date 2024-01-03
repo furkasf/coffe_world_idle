@@ -1,3 +1,4 @@
+using Assets.Scripts.Entitys;
 using Assets.Scripts.States.BaristaStates;
 using Assets.StateMachines;
 using Assets.States;
@@ -8,9 +9,12 @@ public class Barista : MonoBehaviour
 {
     private StateMachine _stateMachine;
 
+    [SerializeField] Transform _coffeMachine;
+    [SerializeField] SpriteRenderer _spriteRenderer;
     [SerializeField] float speed = 3f;
 
-    public bool IsCustomerCome;
+    public Transform CoffeMachineTrans => _coffeMachine;
+    public Node BaristaNode; 
     public bool IsOrdertaken;
     public bool IsCoffeePrepared;
     public bool IsCoffeeDelivered;
@@ -22,8 +26,8 @@ public class Barista : MonoBehaviour
         _stateMachine = new StateMachine();
 
         WaitOrderState waitOrder = new WaitOrderState(this);
-        GetOrderState getOrder = new GetOrderState(this);
-        PrepareOrderState prepareOrder = new PrepareOrderState(this);
+        GetOrderState getOrder = new GetOrderState(this, _spriteRenderer);
+        PrepareOrderState prepareOrder = new PrepareOrderState(this, _spriteRenderer);
         DelivareOrderState delivareOrder = new DelivareOrderState(this);
 
         At(waitOrder, getOrder, OnIsWait());
@@ -35,7 +39,7 @@ public class Barista : MonoBehaviour
 
         void At(IState to, IState from, Func<bool> condition) => _stateMachine.AddTransition(to, from, condition);
 
-        Func<bool> OnIsWait() => () => IsCustomerCome;
+        Func<bool> OnIsWait() => () => BaristaNode != null;
         Func<bool> OnIsOrderTaken() => () => IsOrdertaken;
         Func<bool> OnIsCoffeePrepared() => () => IsCoffeePrepared;
         Func<bool> OnCoffeeDelivered() => () => IsCoffeeDelivered;

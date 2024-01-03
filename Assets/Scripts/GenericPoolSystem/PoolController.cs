@@ -1,4 +1,4 @@
-﻿using GenericPoolSystem.PoolData;
+using GenericPoolSystem.PoolData;
 using UnityEngine;
 
 namespace GenericPoolSystem
@@ -8,7 +8,6 @@ namespace GenericPoolSystem
         public PoolContainer PoolData;
 
         private ObjectPoolManager _poolManager;
-
         private void Awake()
         {
             GetPoolData();
