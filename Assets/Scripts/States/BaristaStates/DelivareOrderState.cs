@@ -23,7 +23,7 @@ namespace Assets.Scripts.States.BaristaStates
             //go to cutomer
             //wait delivery time is finish
             // go to return state
-            _
+            
 
             _mySequence = DOTween.Sequence();
 
@@ -40,7 +40,7 @@ namespace Assets.Scripts.States.BaristaStates
             {
                 //_barista.BaristaNode.Customer.DeliveryTaken();
 
-                _barista.BaristaNode.ResetNodes();
+                _barista.BaristaNode?.ResetNodes();
                 _barista.BaristaNode = null;
 
                 _barista.IsCoffeeDelivered = true;

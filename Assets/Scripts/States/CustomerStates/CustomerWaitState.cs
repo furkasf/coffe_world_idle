@@ -16,12 +16,12 @@ namespace Assets.Scripts.States.CustomerStates
         }
         public void OnEnter()
         {
-            
+            _customer.CoffeeSprite.SetActive(true);
         }
 
         public void OnExit()
         {
-            
+            _customer.CoffeeSprite.SetActive(false);
         }
 
         public void Tick()

@@ -14,7 +14,7 @@ public class Barista : MonoBehaviour
     [SerializeField] float speed = 3f;
 
     public Transform CoffeMachineTrans => _coffeMachine;
-    public Node BaristaNode; 
+    public Node BaristaNode;
     public bool IsOrdertaken;
     public bool IsCoffeePrepared;
     public bool IsCoffeeDelivered;
@@ -31,7 +31,7 @@ public class Barista : MonoBehaviour
         DelivareOrderState delivareOrder = new DelivareOrderState(this);
 
         At(waitOrder, getOrder, OnIsWait());
-        At(getOrder, prepareOrder,OnIsOrderTaken());
+        At(getOrder, prepareOrder, OnIsOrderTaken());
         At(prepareOrder, delivareOrder, OnIsCoffeePrepared());
         At(delivareOrder, waitOrder, OnCoffeeDelivered());
 
@@ -43,5 +43,10 @@ public class Barista : MonoBehaviour
         Func<bool> OnIsOrderTaken() => () => IsOrdertaken;
         Func<bool> OnIsCoffeePrepared() => () => IsCoffeePrepared;
         Func<bool> OnCoffeeDelivered() => () => IsCoffeeDelivered;
+    }
+
+    private void Update()
+    {
+        _stateMachine?.Tick();
     }
 }

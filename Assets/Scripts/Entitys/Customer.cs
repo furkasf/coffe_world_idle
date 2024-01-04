@@ -1,3 +1,4 @@
+using Assets.Scripts.Entitys;
 using Assets.Scripts.States.CustomerStates;
 using Assets.StateMachines;
 using Assets.States;
@@ -7,9 +8,14 @@ using UnityEngine;
 public class Customer : MonoBehaviour
 {
     private StateMachine _stateMachine;
+    private CustomerWaitState customerWaitState; 
+    private GoToCoffeeState goToCoffeeState;
+    private LeaveCoffeeState leaveCoffeeState;
 
     [SerializeField] float speed = 3f;
 
+    public GameObject CoffeeSprite;
+    public Node CustomerNode;
     public bool IsGoToCoffee;
     public bool IsWaitOrder;
     public bool IsReadyToLeave;
@@ -18,20 +24,40 @@ public class Customer : MonoBehaviour
     {
         _stateMachine = new StateMachine();
 
-        var customerWaitState = new CustomerWaitState(this);
-        var goToCoffeeState = new GoToCoffeeState(this);
-        var leaveCoffeeState = new LeaveCoffeeState(this);
+        goToCoffeeState = new GoToCoffeeState(this);
+        customerWaitState = new CustomerWaitState(this);
+        leaveCoffeeState = new LeaveCoffeeState(this);
 
         At(goToCoffeeState, customerWaitState, IsArriveCoffe());
         At(customerWaitState, leaveCoffeeState, IsCoffeeCome());
-        At(leaveCoffeeState, goToCoffeeState, IsLeaveShop());
 
         _stateMachine.SetState(goToCoffeeState);
 
         void At(IState to, IState from, Func<bool> condition) => _stateMachine.AddTransition(to, from, condition);
 
-        Func<bool> IsArriveCoffe() => () => IsGoToCoffee;
+        Func<bool> IsArriveCoffe() => () => IsGoToCoffee;//is realy  need that state ?
         Func<bool> IsCoffeeCome() => () => IsWaitOrder;
-        Func<bool> IsLeaveShop() => () => IsReadyToLeave;
+    }
+
+    private void Update()
+    {
+        _stateMachine?.Tick();
+    }
+
+    public void RestartStateMachine()
+    {
+        IsGoToCoffee = false;
+        IsReadyToLeave = false;
+        IsWaitOrder = false;
+
+        _stateMachine?.SetState(goToCoffeeState);
+    }
+
+    public void DeliveryTaken()
+    {
+        IsReadyToLeave = true;
+        IsWaitOrder = false;
+
+        CustomerNode = null;
     }
 }
