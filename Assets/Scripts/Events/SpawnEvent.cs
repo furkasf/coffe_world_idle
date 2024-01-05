@@ -1,9 +1,12 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace Assets.Scripts.Events
+namespace coffee_world_idle.Assets.Scripts.Events
 {
     public static class SpawnEvent
     {
-        public Action OnSpawn;
+        public static Action OnSpawn;
     }
 }

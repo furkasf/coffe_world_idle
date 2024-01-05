@@ -14,6 +14,7 @@ public class Customer : MonoBehaviour
 
     [SerializeField] float speed = 3f;
 
+    public Transform SpawnPoint;
     public GameObject CoffeeSprite;
     public Node CustomerNode;
     public bool IsGoToCoffee;
@@ -31,8 +32,6 @@ public class Customer : MonoBehaviour
         At(goToCoffeeState, customerWaitState, IsArriveCoffe());
         At(customerWaitState, leaveCoffeeState, IsCoffeeCome());
 
-        _stateMachine.SetState(goToCoffeeState);
-
         void At(IState to, IState from, Func<bool> condition) => _stateMachine.AddTransition(to, from, condition);
 
         Func<bool> IsArriveCoffe() => () => IsGoToCoffee;//is realy  need that state ?
@@ -46,6 +45,7 @@ public class Customer : MonoBehaviour
 
     public void RestartStateMachine()
     {
+        CustomerNode = null;
         IsGoToCoffee = false;
         IsReadyToLeave = false;
         IsWaitOrder = false;

@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Events;
+using NaughtyAttributes;
 using System.Collections;
 using System.Collections.Generic;
 using System.Xml.Linq;
@@ -23,6 +24,7 @@ namespace Assets.Scripts.Entitys
             }
         }
 
+      
         private void OnEnable()
         {
             TradeEvent.OnGetAvailableCustomerAtShopNode += GetAvailableCustomerAtShopNode;

@@ -5,7 +5,7 @@ namespace GenericPoolSystem
 {
     public class PoolController : MonoBehaviour
     {
-        public PoolContainer PoolData;
+        private PoolContainer PoolData;
 
         private ObjectPoolManager _poolManager;
         private void Awake()

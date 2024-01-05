@@ -1,4 +1,4 @@
-﻿using Assets.Scripts.Entitys;
+using Assets.Scripts.Entitys;
 using Assets.Scripts.Events;
 using DG.Tweening;
 using Assets.States;
@@ -45,11 +45,12 @@ namespace Assets.Scripts.States.BaristaStates
 
                 if (_timer > _checkTIme)
                 {
-                    Node shopNode = TradeEvent.OnGetAvailableCustomerAtShopNode();
+                    Node node = TradeEvent.OnGetAvailableCustomerAtShopNode();
+                    Debug.Log("Node exist : " +  node != null);
 
-                    if (shopNode != null)
+                    if (node != null)
                     {
-                        _barista.BaristaNode = shopNode;
+                        _barista.BaristaNode = node;
                     }
                     else
                     {

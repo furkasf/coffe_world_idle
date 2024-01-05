@@ -1,6 +1,7 @@
-﻿using Events;
+using coffee_world_idle.Assets.Scripts.Events;
 using GenericPoolSystem;
 using NaughtyAttributes;
+using NaughtyAttributes.Editor;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -22,12 +23,12 @@ namespace Entitys
         {
             Transform spawnPoint = GetRandomWayPoint();
 
-            GameObject customer = PoolSignals.onGetObjectFormPool("Customer");
+            GameObject customer = PoolSignals.onGetObjectFormPool("CustomerPool");
             customer.transform.position = spawnPoint.position;
 
             Customer _customer = customer.GetComponent<Customer>();
-            _customer.SpawnPoint = spawnPoint;
-            _customer.ReStartStateMachine();
+            //_customer.SpawnPoint = spawnPoint;
+            //_customer.ReStartStateMachine();
         }
 
         private Transform GetRandomWayPoint() => wayPoints[UnityEngine.Random.Range(0, _listCount)];
