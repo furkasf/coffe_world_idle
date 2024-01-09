@@ -1,7 +1,9 @@
 ﻿using Assets.Scripts.Events;
 using Assets.States;
+using coffee_world_idle.Assets.Scripts.Events;
 using DG.Tweening;
 using GenericPoolSystem;
+using System.Diagnostics;
 using System.Linq;
 using UnityEngine;
 
@@ -20,7 +22,9 @@ namespace Assets.Scripts.States.CustomerStates
 
         public void OnEnter()
         {
-            //_spawnPoint = _customer.SpawnPoint; //get from spawner
+
+            UnityEngine.Debug.Log("Customer Enter coffee leave state");
+            _spawnPoint = _customer.SpawnPoint; 
             Transform customerTrans = _customer.transform;
 
             //call payments
@@ -47,16 +51,18 @@ namespace Assets.Scripts.States.CustomerStates
         }
         private void ReturnBackSpawnPoint()
         {
-            // _customer.transform.DOMove(_customer.SpawnPoint.position, _customer.MoveSpeed)
-            //     .OnComplete(() =>
-            //     {
-            //         PoolSignals.onPutObjectBackToPool(_customer.gameObject, "Customer");
-            //         if (!TradeEvent.OnIsAllNodesFul())
-            //         {
-            //             SpawnEvent.OnSpawn();
-            //         }
-            //     }
-            //     );
+            
+
+            _customer.transform.DOMove(_customer.SpawnPoint.position, 1.5f) // get from scriptable
+                .OnComplete(() =>
+                {
+                    PoolSignals.onPutObjectBackToPool(_customer.gameObject, "CustomerPool");
+                    if (!TradeEvent.OnIsAllNodesFul())
+                    {
+                        SpawnEvent.OnSpawn();
+                    }
+                }
+                );
         }
     }
 }

@@ -25,12 +25,11 @@ namespace Assets.Scripts.States.BaristaStates
         }
         public void OnEnter()
         {
-            //exit from get order state 
+            UnityEngine.Debug.Log("Barista Enter prapare order state");
+
             _barista.IsOrdertaken = false;
 
-            // go to coffee machine
-            //praper order 
-            //enter delivery state
+            _transform = _barista.transform;
 
             _destination = _barista.CoffeMachineTrans.position;
 

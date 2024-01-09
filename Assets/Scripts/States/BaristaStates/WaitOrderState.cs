@@ -23,7 +23,9 @@ namespace Assets.Scripts.States.BaristaStates
 
         public void OnEnter()
         {
-            if(_barista.BaristaNode != null)
+            UnityEngine.Debug.Log("Barista Enter wait order state");
+
+            if (_barista.BaristaNode != null)
             {
                 _barista.BaristaNode.ResetNodes();
                 _barista.BaristaNode = null;
@@ -46,10 +48,10 @@ namespace Assets.Scripts.States.BaristaStates
                 if (_timer > _checkTIme)
                 {
                     Node node = TradeEvent.OnGetAvailableCustomerAtShopNode();
-                    Debug.Log("Node exist : " +  node != null);
 
                     if (node != null)
                     {
+                        _timer = 0f;
                         _barista.BaristaNode = node;
                     }
                     else

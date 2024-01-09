@@ -2,7 +2,7 @@
 
 namespace Assets.Scripts.Entitys
 {
-    public class Node : MonoBehaviour
+    public class Node
     {
         private Barista _barista;
         private Customer _customer;

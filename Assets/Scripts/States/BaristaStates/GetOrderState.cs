@@ -21,6 +21,8 @@ namespace Assets.Scripts.States.BaristaStates
 
         public void OnEnter()
         {
+            UnityEngine.Debug.Log("Barista Enter get order state");
+
             _mySequence = DOTween.Sequence();
 
             //go customer
@@ -42,7 +44,7 @@ namespace Assets.Scripts.States.BaristaStates
                 _spriteRenderer.material.DOFloat(360, "_Arc1", upgradeTime)
                 .OnComplete(() => _barista.IsOrdertaken = true);
             });
-           
+
         }
 
         public void OnExit()

@@ -27,8 +27,8 @@ namespace Entitys
             customer.transform.position = spawnPoint.position;
 
             Customer _customer = customer.GetComponent<Customer>();
-            //_customer.SpawnPoint = spawnPoint;
-            //_customer.ReStartStateMachine();
+            _customer.SpawnPoint = spawnPoint;
+            _customer.RestartStateMachine();
         }
 
         private Transform GetRandomWayPoint() => wayPoints[UnityEngine.Random.Range(0, _listCount)];

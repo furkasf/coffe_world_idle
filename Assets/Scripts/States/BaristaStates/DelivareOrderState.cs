@@ -15,15 +15,14 @@ namespace Assets.Scripts.States.BaristaStates
         public DelivareOrderState(Barista barista)
         {
             _barista = barista;
+            _transform = _barista.transform;
         }
         public void OnEnter()
         {
-            //exit from praper state
+            UnityEngine.Debug.Log("Barista enter delivare order state");
+
             _barista.IsCoffeeDelivered = false;
-            //go to cutomer
-            //wait delivery time is finish
-            // go to return state
-            
+
 
             _mySequence = DOTween.Sequence();
 
@@ -38,7 +37,7 @@ namespace Assets.Scripts.States.BaristaStates
 
             _mySequence.OnComplete(delegate
             {
-                //_barista.BaristaNode.Customer.DeliveryTaken();
+                _barista.BaristaNode.Customer.DeliveryTaken();
 
                 _barista.BaristaNode?.ResetNodes();
                 _barista.BaristaNode = null;

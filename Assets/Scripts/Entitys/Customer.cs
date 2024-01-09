@@ -35,7 +35,7 @@ public class Customer : MonoBehaviour
         void At(IState to, IState from, Func<bool> condition) => _stateMachine.AddTransition(to, from, condition);
 
         Func<bool> IsArriveCoffe() => () => IsGoToCoffee;//is realy  need that state ?
-        Func<bool> IsCoffeeCome() => () => IsWaitOrder;
+        Func<bool> IsCoffeeCome() => () => IsReadyToLeave;
     }
 
     private void Update()

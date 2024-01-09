@@ -23,13 +23,14 @@ namespace Assets.Scripts.States.CustomerStates
         }
         public void OnEnter()
         {
-            Node node = TradeEvent.OnGetEmptyCustomerNode?.Invoke();
+            UnityEngine.Debug.Log("Customer Enter goto cofffee state");
+            Node node = TradeEvent.OnGetEmptyCustomerNode();
 
             _customer.IsReadyToLeave = false;
-
-            if (_customer.CustomerNode != null)
+            
+            if (_customer.CustomerNode == null)
             {
-                _customer.CustomerNode = null;
+                _customer.CustomerNode = node;
             }
 
             Transform customerTrans = _customer.transform;
@@ -44,7 +45,7 @@ namespace Assets.Scripts.States.CustomerStates
 
             _mySequence.OnComplete(() =>
             {
-                _customer.IsWaitOrder = true;
+                _customer.IsGoToCoffee = true;
                 TradeEvent.OnAddcustomer(node, _customer);
             });
         }

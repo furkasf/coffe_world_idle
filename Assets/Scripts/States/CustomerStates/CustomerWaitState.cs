@@ -16,12 +16,13 @@ namespace Assets.Scripts.States.CustomerStates
         }
         public void OnEnter()
         {
-            _customer.CoffeeSprite.SetActive(true);
+            UnityEngine.Debug.Log("Customer Enter wait state");
+            //_customer.CoffeeSprite.SetActive(true);
         }
 
         public void OnExit()
         {
-            _customer.CoffeeSprite.SetActive(false);
+            //_customer.CoffeeSprite.SetActive(false);
         }
 
         public void Tick()
