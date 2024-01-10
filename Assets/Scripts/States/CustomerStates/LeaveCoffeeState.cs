@@ -1,6 +1,6 @@
 ﻿using Assets.Scripts.Events;
 using Assets.States;
-using coffee_world_idle.Assets.Scripts.Events;
+using Events;
 using DG.Tweening;
 using GenericPoolSystem;
 using System.Diagnostics;

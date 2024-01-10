@@ -1,4 +1,9 @@
 using UnityEngine;
+using UnityEngine.UI;
+using System.Collections;
+using System.Collections.Generic;
+using Events;
+using TMPro;
 
 namespace GameUI
 {
@@ -25,14 +30,14 @@ namespace GameUI
 
         private void OnEnable()
         {
-            IceCreamEvent.OnUpGradeIceCream += UpgradeIceCream;
-            IceCreamEvent.OnSellIceCream += SellIceCream;
+            // IceCreamEvent.OnUpGradeIceCream += UpgradeIceCream;
+            // IceCreamEvent.OnSellIceCream += SellIceCream;
         }
 
         private void OnDisable()
         {
-            IceCreamEvent.OnUpGradeIceCream -= UpgradeIceCream;
-            IceCreamEvent.OnSellIceCream -= SellIceCream;
+            // IceCreamEvent.OnUpGradeIceCream -= UpgradeIceCream;
+            // IceCreamEvent.OnSellIceCream -= SellIceCream;
         }
 
         public void OpenStartPanel()
@@ -50,31 +55,31 @@ namespace GameUI
         {
             _panelCommand.Execute(PanelType.UpGradePanel);
 
-            sellPriceText.text = "Price : " + IceCreamEvent.OnGetSellPrice(IceCreamType.Chokelate);
-            timeText.text = "Time : " + IceCreamEvent.OnGetManifactureTime(IceCreamType.Chokelate);
-            upGradeCostText.text = "Cost : " + IceCreamEvent.OnGetUpGradeCost(IceCreamType.Chokelate);
+            // sellPriceText.text = "Price : " + IceCreamEvent.OnGetSellPrice(IceCreamType.Chokelate);
+            // timeText.text = "Time : " + IceCreamEvent.OnGetManifactureTime(IceCreamType.Chokelate);
+            // upGradeCostText.text = "Cost : " + IceCreamEvent.OnGetUpGradeCost(IceCreamType.Chokelate);
         }
 
         public void SellIceCream()
         {
-            _money += IceCreamEvent.OnGetSellPrice(IceCreamType.Chokelate);
-            playerMoney.text = "Money : " + _money;
+        //     _money += IceCreamEvent.OnGetSellPrice(IceCreamType.Chokelate);
+        //     playerMoney.text = "Money : " + _money;
         }
 
         public void UpgradeIceCream()
         {
-            int upgradeCost = IceCreamEvent.OnGetUpGradeCost(IceCreamType.Chokelate);
+            // int upgradeCost = IceCreamEvent.OnGetUpGradeCost(IceCreamType.Chokelate);
 
-            if (_money < upgradeCost) return;
+            // if (_money < upgradeCost) return;
 
-            _money -= upgradeCost;
+            // _money -= upgradeCost;
 
-            IceCreamEvent.OnIncreaseUpgradeCost(IceCreamType.Chokelate);
+            // IceCreamEvent.OnIncreaseUpgradeCost(IceCreamType.Chokelate);
 
-            sellPriceText.text = "Price : " + IceCreamEvent.OnGetSellPrice(IceCreamType.Chokelate);
-            timeText.text = "Time : " + IceCreamEvent.OnGetManifactureTime(IceCreamType.Chokelate);
-            upGradeCostText.text = "Cost : " + IceCreamEvent.OnGetUpGradeCost(IceCreamType.Chokelate);
-            playerMoney.text = "Money : " + _money;
+            // sellPriceText.text = "Price : " + IceCreamEvent.OnGetSellPrice(IceCreamType.Chokelate);
+            // timeText.text = "Time : " + IceCreamEvent.OnGetManifactureTime(IceCreamType.Chokelate);
+            // upGradeCostText.text = "Cost : " + IceCreamEvent.OnGetUpGradeCost(IceCreamType.Chokelate);
+            // playerMoney.text = "Money : " + _money;
         }
     }
 }

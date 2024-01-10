@@ -1,4 +1,4 @@
-using coffee_world_idle.Assets.Scripts.Events;
+using Events;
 using GenericPoolSystem;
 using NaughtyAttributes;
 using NaughtyAttributes.Editor;

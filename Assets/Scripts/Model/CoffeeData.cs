@@ -15,7 +15,7 @@ namespace Model
 
         private int _upGradeAmount;
         public Sprite Sprite => _sprite;
-        public IceCreamType GetIceCreamType => _IceCreamType;
+        public CoffeeType GetCoffeeType => _coffeeType;
 
         public int GetUpgradeCost()
         {

@@ -10,7 +10,7 @@ namespace Model
         
         public float PrepSpeed => _prepSpeed;
 
-        public void UpgradeSpeed => _prepSpeed -= 0.2f;
+        public void UpgradeSpeed () => _prepSpeed -= 0.2f;
 
         public void Reset()
         {
