@@ -60,13 +60,13 @@ namespace GameUI
             // upGradeCostText.text = "Cost : " + IceCreamEvent.OnGetUpGradeCost(IceCreamType.Chokelate);
         }
 
-        public void SellIceCream()
+        public void SellCoffeeCream()
         {
         //     _money += IceCreamEvent.OnGetSellPrice(IceCreamType.Chokelate);
         //     playerMoney.text = "Money : " + _money;
         }
 
-        public void UpgradeIceCream()
+        public void UpgradeCoffeeCream()
         {
             // int upgradeCost = IceCreamEvent.OnGetUpGradeCost(IceCreamType.Chokelate);
 
