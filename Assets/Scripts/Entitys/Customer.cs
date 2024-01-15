@@ -8,7 +8,7 @@ using UnityEngine;
 public class Customer : MonoBehaviour
 {
     private StateMachine _stateMachine;
-    private CustomerWaitState customerWaitState; 
+    private CustomerWaitState customerWaitState;
     private GoToCoffeeState goToCoffeeState;
     private LeaveCoffeeState leaveCoffeeState;
 

@@ -30,14 +30,14 @@ namespace GameUI
 
         private void OnEnable()
         {
-            // IceCreamEvent.OnUpGradeIceCream += UpgradeIceCream;
-            // IceCreamEvent.OnSellIceCream += SellIceCream;
+           UpgradeEvent.OnUpgradeCoffee += UpgradeCoffee;
+           UpgradeEvent.OnSellCoffeeCream += SellCoffee;
         }
 
         private void OnDisable()
-        {
-            // IceCreamEvent.OnUpGradeIceCream -= UpgradeIceCream;
-            // IceCreamEvent.OnSellIceCream -= SellIceCream;
+        { 
+           UpgradeEvent.OnUpgradeCoffee -= UpgradeCoffee;
+           UpgradeEvent.OnSellCoffeeCream -= SellCoffee;
         }
 
         public void OpenStartPanel()
@@ -55,31 +55,31 @@ namespace GameUI
         {
             _panelCommand.Execute(PanelType.UpGradePanel);
 
-            // sellPriceText.text = "Price : " + IceCreamEvent.OnGetSellPrice(IceCreamType.Chokelate);
-            // timeText.text = "Time : " + IceCreamEvent.OnGetManifactureTime(IceCreamType.Chokelate);
-            // upGradeCostText.text = "Cost : " + IceCreamEvent.OnGetUpGradeCost(IceCreamType.Chokelate);
+            sellPriceText.text = "Price : " + CoffeeUpgradeEvent.OnGetSellPrice(CoffeeType.Latte;
+            timeText.text = "Time : " + CoffeeUpgradeEvent.OnGetManifactureTime(CoffeeType.Latte);
+            upGradeCostText.text = "Cost : " + CoffeeUpgradeEvent.OnGetUpGradeCost(CoffeeType.Latte;
         }
 
-        public void SellCoffeeCream()
+        public void SellCoffee()
         {
-        //     _money += IceCreamEvent.OnGetSellPrice(IceCreamType.Chokelate);
-        //     playerMoney.text = "Money : " + _money;
+            _money += CoffeeUpgradeEvent.OnGetSellPrice(CoffeeType.Latte);
+            playerMoney.text = "Money : " + _money;
         }
 
-        public void UpgradeCoffeeCream()
+        public void UpgradeCoffee()
         {
-            // int upgradeCost = IceCreamEvent.OnGetUpGradeCost(IceCreamType.Chokelate);
+            int upgradeCost = CoffeeUpgradeEvent.OnGetUpGradeCost(CoffeeType.Latte);
 
-            // if (_money < upgradeCost) return;
+            if (_money < upgradeCost) return;
 
-            // _money -= upgradeCost;
+            _money -= upgradeCost;
 
-            // IceCreamEvent.OnIncreaseUpgradeCost(IceCreamType.Chokelate);
+            CoffeeUpgradeEvent.OnIncreaseUpgradeCost(CoffeeType.Latte;
 
-            // sellPriceText.text = "Price : " + IceCreamEvent.OnGetSellPrice(IceCreamType.Chokelate);
-            // timeText.text = "Time : " + IceCreamEvent.OnGetManifactureTime(IceCreamType.Chokelate);
-            // upGradeCostText.text = "Cost : " + IceCreamEvent.OnGetUpGradeCost(IceCreamType.Chokelate);
-            // playerMoney.text = "Money : " + _money;
+            sellPriceText.text = "Price : " + CoffeeUpgradeEvent.OnGetSellPrice(CoffeeType.Latte);
+            timeText.text = "Time : " + CoffeeUpgradeEvent.OnGetManifactureTime(CoffeeType.Latte);
+            upGradeCostText.text = "Cost : " + CoffeeUpgradeEvent.OnGetUpGradeCost(CoffeeType.Latte);
+            playerMoney.text = "Money : " + _money;
         }
     }
 }

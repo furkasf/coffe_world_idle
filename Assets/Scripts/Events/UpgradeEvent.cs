@@ -7,6 +7,7 @@ namespace Events
 {
     public static class UpgradeEvent
     {
-        
+        public static Action OnSellCoffeeCream;
+        public static Action OnUpgradeCoffee;
     }
 }
